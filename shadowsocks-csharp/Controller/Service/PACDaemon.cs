@@ -19,8 +19,8 @@ namespace Shadowsocks.Controller
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
-        public const string PAC_FILE = "pac.txt";
-        public const string USER_RULE_FILE = "user-rule.txt";
+        public const string PAC_FILE = "pac.js";
+        public const string USER_RULE_FILE = "user-rule.ini";
         public const string USER_ABP_FILE = "abp.txt";
         private Configuration config;
 

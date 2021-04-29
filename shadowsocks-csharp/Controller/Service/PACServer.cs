@@ -14,7 +14,7 @@ namespace Shadowsocks.Controller
     {
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
-        public const string RESOURCE_NAME = "pac";
+        public const string RESOURCE_NAME = "pac.js";
 
         private string PacSecret
         {
