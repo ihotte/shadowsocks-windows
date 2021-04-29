@@ -77,7 +77,7 @@ namespace Shadowsocks.Util.SystemProxy
             }
         }
 
-        public static void SetIEProxy(bool enable, bool global, string proxyServer, string pacURL)
+        public static void SetIEProxy(bool enable, bool global, string proxyServer, string pacURL, string proxyIgnoreDomains)
         {
             Read();
 
@@ -97,8 +97,9 @@ namespace Shadowsocks.Util.SystemProxy
                 string[] realBypassList = customBypassList.Distinct().ToArray();
                 string realBypassString = string.Join(";", realBypassList);
 
+                proxyIgnoreDomains = (proxyIgnoreDomains != null && proxyIgnoreDomains != "") ? $";{proxyIgnoreDomains}" : "";
                 arguments = global
-                    ? $"global {proxyServer} {realBypassString}"
+                    ? $"global {proxyServer} {realBypassString}{proxyIgnoreDomains}"
                     : $"pac {pacURL}";
             }
             else

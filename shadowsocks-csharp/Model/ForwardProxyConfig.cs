@@ -20,6 +20,14 @@ namespace Shadowsocks.Model
         public string authUser;
         public string authPwd;
 
+        public string proxyIgnoreDomains;
+        public string proxyIgnoreDomainsExtra;
+        public string proxyIgnoreDomainsExtra1;
+        public string proxyIgnoreDomainsExtra2;
+        public string proxyIgnoreDomainsExtra3;
+        public string proxyIgnoreDomainsExtra4;
+        public string proxyIgnoreDomainsExtra5;
+
         public ForwardProxyConfig()
         {
             useProxy = false;
@@ -30,6 +38,14 @@ namespace Shadowsocks.Model
             useAuth = false;
             authUser = "";
             authPwd = "";
+
+            proxyIgnoreDomains = "";
+            proxyIgnoreDomainsExtra = "";
+            proxyIgnoreDomainsExtra1 = "";
+            proxyIgnoreDomainsExtra2 = "";
+            proxyIgnoreDomainsExtra3 = "";
+            proxyIgnoreDomainsExtra4 = "";
+            proxyIgnoreDomainsExtra5 = "";
         }
 
         public void CheckConfig()

@@ -20,6 +20,15 @@ namespace Shadowsocks.Controller
             bool global = config.global;
             bool enabled = config.enabled;
 
+            string proxyIgnoreDomains = (!global || !enabled) ? "" : ""
+                        + config.proxy.proxyIgnoreDomains
+                        + config.proxy.proxyIgnoreDomainsExtra
+                        + config.proxy.proxyIgnoreDomainsExtra1
+                        + config.proxy.proxyIgnoreDomainsExtra2
+                        + config.proxy.proxyIgnoreDomainsExtra3
+                        + config.proxy.proxyIgnoreDomainsExtra4
+                        + config.proxy.proxyIgnoreDomainsExtra5;
+
             if (forceDisable)
             {
                 enabled = false;
@@ -31,7 +40,7 @@ namespace Shadowsocks.Controller
                 {
                     if (global)
                     {
-                        Sysproxy.SetIEProxy(true, true, "localhost:" + config.localPort.ToString(), null);
+                        Sysproxy.SetIEProxy(true, true, "localhost:" + config.localPort.ToString(), null, proxyIgnoreDomains);
                     }
                     else
                     {
@@ -45,12 +54,12 @@ namespace Shadowsocks.Controller
 
                             pacUrl = pacSrv.PacUrl;
                         }
-                        Sysproxy.SetIEProxy(true, false, null, pacUrl);
+                        Sysproxy.SetIEProxy(true, false, null, pacUrl, null);
                     }
                 }
                 else
                 {
-                    Sysproxy.SetIEProxy(false, false, null, null);
+                    Sysproxy.SetIEProxy(false, false, null, null, null);
                 }
             }
             catch (ProxyException ex)
