@@ -108,6 +108,9 @@ namespace Shadowsocks.Util.SystemProxy
                 var proxy_server = _userSettings.ProxyServer ?? "-";
                 var bypass_list = _userSettings.BypassList ?? "-";
                 var pac_url = _userSettings.PacUrl ?? "-";
+
+                // Force the system proxy to be disabled when quit
+                flags = "1";
                 arguments = $"set {flags} {proxy_server} {bypass_list} {pac_url}";
 
                 // have to get new settings
