@@ -248,7 +248,7 @@ var __RULES__ = {JsonConvert.SerializeObject(ruleLines, Formatting.Indented)};
             {
                 for (string line = stringReader.ReadLine(); line != null; line = stringReader.ReadLine())
                 {
-                    if (string.IsNullOrWhiteSpace(line) || line.StartsWith("!") || line.StartsWith("["))
+                    if (string.IsNullOrWhiteSpace(line) || line.StartsWith("!") || line.StartsWith("[") || line.StartsWith(";"))
                         continue;
                     valid_lines.Add(line);
                 }
