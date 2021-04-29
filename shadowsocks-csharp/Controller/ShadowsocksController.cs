@@ -357,7 +357,7 @@ namespace Shadowsocks.Controller
             UpdatePACFromGeositeError?.Invoke(this, e);
         }
 
-        private static readonly IEnumerable<char> IgnoredLineBegins = new[] { '!', '[' };
+        private static readonly IEnumerable<char> IgnoredLineBegins = new[] { '!', '[', ';' };
         private void PacDaemon_UserRuleFileChanged(object sender, EventArgs e)
         {
             GeositeUpdater.MergeAndWritePACFile(_config.geositeDirectGroups, _config.geositeProxiedGroups, _config.geositePreferDirect);
